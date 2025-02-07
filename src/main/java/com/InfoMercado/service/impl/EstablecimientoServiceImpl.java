@@ -36,4 +36,10 @@ public class EstablecimientoServiceImpl implements EstablecimientoService {
     public void eliminarEstablecimiento(Long id) {
         establecimientoRepository.deleteById(id);
     }
+
+    // Implementación del nuevo método
+    @Override
+    public List<Establecimiento> obtenerPorComerciante(Long idComerciante) {
+        return establecimientoRepository.findByComercianteIdComerciante(idComerciante);
+    }
 }

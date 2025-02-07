@@ -17,9 +17,6 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {
         Usuario nuevoUsuario = usuarioService.save(usuario);
-
-        System.out.println("este es el controlador");
-        System.out.println(nuevoUsuario.getNombre());
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
 }

@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/establecimientos")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EstablecimientoController {
 
     @Autowired
@@ -49,5 +50,11 @@ public class EstablecimientoController {
     @DeleteMapping("/{id}")
     public void eliminarEstablecimiento(@PathVariable Long id) {
         establecimientoService.eliminarEstablecimiento(id);
+    }
+
+    // Nuevo endpoint para obtener establecimientos por comerciante
+    @GetMapping("/comerciante/{idComerciante}")
+    public List<Establecimiento> obtenerPorComerciante(@PathVariable Long idComerciante) {
+        return establecimientoService.obtenerPorComerciante(idComerciante);
     }
 }
